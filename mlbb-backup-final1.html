@@ -1,0 +1,2419 @@
+<html>
+<head>
+<title>MLBB EdgyHacks</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<style>
+html,body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+* {
+    color: #E8E8E8;
+    font-size: 12px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    transition: all 0.3s ease;
+}
+
+*:not(input,checkbox,textarea) {
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   user-select: none;
+   outline: none;
+   -webkit-tap-highlight-color: transparent;
+}
+
+input {
+    background-color: rgba(100, 50, 150, 0.2);
+    height: 25px;
+    border: 1px solid rgba(150, 100, 200, 0.5);
+    border-radius: 5px;
+    padding: 0 8px;
+    color: #E8E8E8;
+}
+
+input:focus {
+    background-color: rgba(100, 50, 150, 0.4);
+    border-color: #9B59B6;
+    box-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
+}
+
+button {
+    height: 35px;
+    background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 0 20px;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+button:enabled:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.5);
+}
+
+button:enabled:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 10px rgba(155, 89, 182, 0.3);
+}
+
+input[type=radio]  {
+    width:20px;
+    height:20px;
+    margin-right:6px;
+    border:none;
+    outline-style:none;
+    -webkit-appearance:none;
+    appearance:none;
+    vertical-align:middle;
+    border:2px solid rgba(150, 100, 200, 0.6);
+    border-radius:50%;
+    background: rgba(100, 50, 150, 0.2);
+}
+input[type=radio]:checked {
+    border:6px solid #9B59B6;
+    background:#FFFFFF;
+    box-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+}
+    
+input[type=checkbox]{
+ visibility: visible;
+ vertical-align:middle; 
+ margin-bottom:2px;
+ cursor: pointer;
+ position: relative;
+ width: 24px;
+ height: 24px;
+ -webkit-appearance: none;
+ appearance: none;
+ background: rgba(100, 50, 150, 0.2);
+ border: 2px solid rgba(150, 100, 200, 0.6);
+ border-radius: 5px;
+ transition: all 0.3s ease;
+}
+input[type=checkbox]:checked {
+ background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+ border-color: #9B59B6;
+ box-shadow: 0 0 10px rgba(155, 89, 182, 0.6);
+}
+input[type=checkbox]:checked::after {
+ content: "✓";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ color: #FFFFFF;
+ font-size: 16px;
+ font-weight: bold;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: rgba(100, 50, 150, 0.2);
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(155, 89, 182, 0.5);
+  transition: all 0.3s ease;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.7);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 5px;
+  background: rgba(100, 50, 150, 0.2);
+}
+
+select{
+	appearance:none;
+	-webkit-appearance:none;
+	background: rgba(100, 50, 150, 0.2);
+	height: 30px;
+	border: 1px solid rgba(150, 100, 200, 0.5);
+	border-radius: 5px;
+	padding: 0 8px;
+	color: #E8E8E8;
+}
+    
+.scrollbar {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(50, 20, 80, 0.3);
+}
+.scrollbar::-webkit-scrollbar-track {
+    background-color: rgba(50, 20, 80, 0.2);
+    border-radius: 10px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+}
+    
+.menubox {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align:center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin: 2px 0;
+}
+.menubox:hover {
+    background-color: rgba(100, 50, 150, 0.3);
+}
+.menubox.current {
+    background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+    box-shadow: 0 2px 8px rgba(155, 89, 182, 0.4);
+}
+
+.menuview {
+    display:none;
+    overflow-x: hidden;
+    height: 100%;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menuview.current {
+    display:block;
+}
+
+.menuview.hidden {
+    display: none !important;
+}
+
+.objectlist {
+	width:100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.objectlist td {
+	height: 25px;
+	border-bottom: 1px solid rgba(150, 100, 200, 0.3);
+}
+
+#console {
+    margin:0; 
+    zoom:1.2;
+    background: linear-gradient(135deg, #2D1B3D 0%, #3D1F4D 100%);
+    position:absolute;
+    z-index: 1000; 
+    left:30px; 
+    top:2px;
+    width:calc(700px /1.2); 
+    height:calc(370px / 1.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(155, 89, 182, 0.3);
+    overflow: hidden;
+}
+
+#titleBar {
+    background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(155, 89, 182, 0.4);
+}
+
+.mod-section {
+    background: rgba(100, 50, 150, 0.15);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid rgba(150, 100, 200, 0.3);
+    transition: all 0.3s ease;
+}
+
+.mod-section:hover {
+    background: rgba(100, 50, 150, 0.25);
+    border-color: rgba(150, 100, 200, 0.5);
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.2);
+}
+
+.slider-container {
+    margin: 15px 0;
+}
+
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #E8E8E8;
+    font-size: 13px;
+}
+
+.color-btn {
+    background: linear-gradient(135deg, #6B46C1 0%, #9333EA 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.color-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.5);
+}
+
+.color-option {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.color-option:active {
+    transform: scale(0.95);
+}
+
+#keyGate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, rgba(48,0,80,0.9), rgba(10,10,20,0.95));
+    z-index: 2000;
+    backdrop-filter: blur(8px);
+}
+
+#keyGate.hidden {
+    display: none;
+}
+
+.key-box {
+    width: 90%;
+    max-width: 380px;
+    background: rgba(20, 10, 40, 0.8);
+    border: 1px solid rgba(150, 100, 200, 0.4);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.key-box h2 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    color: #E8E8E8;
+}
+
+.key-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(150, 100, 200, 0.5);
+    background: rgba(40, 20, 60, 0.8);
+    color: #E8E8E8;
+    font-size: 14px;
+}
+
+.key-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.key-actions button {
+    flex: 1;
+}
+
+.key-status {
+    min-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    color: rgba(232, 232, 232, 0.8);
+}
+
+</style>
+
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    
+if(typeof $ == 'undefined') alert("网络连接失败, 请重新启动!");
+
+const KEY_API_URL = "https://691dcd44d58e64bf0d37a7e0.mockapi.io/MLBB";
+const KEY_CACHE_KEY = "mlbb_edgy_key_cache";
+
+function resetDebugInfo()
+{
+    $("table#GameObject tr").remove();
+    $("table#Component tr").remove();
+    $("#GameObjectTotalCount").html("0");
+    $("#GameObjectCount").html("valid:0");
+    $("#ComponentCount").html("types:0");
+    
+}
+
+function parseExpiration(expValue) {
+    if(!expValue) return null;
+    let date = new Date(expValue);
+    if(isNaN(date.getTime())) return null;
+    return date;
+}
+
+function loadCachedKey() {
+    try {
+        let cache = localStorage.getItem(KEY_CACHE_KEY);
+        if(!cache) return null;
+        return JSON.parse(cache);
+    } catch(e) {
+        return null;
+    }
+}
+
+function saveCachedKey(data) {
+    try {
+        localStorage.setItem(KEY_CACHE_KEY, JSON.stringify(data));
+    } catch(e) {
+        // ignore storage errors
+    }
+}
+
+function setKeyStatus(message, isError) {
+    let status = document.getElementById("keyStatus");
+    if(status) {
+        status.style.color = isError ? "#FF6B6B" : "#7CFC8A";
+        status.textContent = message || "";
+    }
+}
+
+function showConsoleUI() {
+    let gate = document.getElementById("keyGate");
+    let consoleEl = document.getElementById("console");
+    if(gate) gate.classList.add("hidden");
+    if(consoleEl) consoleEl.style.display = "block";
+}
+
+function unlockWithKey(entry) {
+    showConsoleUI();
+    let expiresAt = parseExpiration(entry["expires-in"]);
+    saveCachedKey({
+        key: entry.key,
+        expiresAt: expiresAt ? expiresAt.toISOString() : null,
+        validatedAt: new Date().toISOString()
+    });
+}
+
+function attemptKeyLogin() {
+    let input = document.getElementById("keyInput");
+    if(!input) return;
+    let keyValue = (input.value || "").trim();
+    if(!keyValue.length) {
+        setKeyStatus("Please enter your access key.", true);
+        return;
+    }
+    setKeyStatus("Validating key...", false);
+    fetch(KEY_API_URL)
+        .then(res => {
+            if(!res.ok) throw new Error("Unable to reach key server.");
+            return res.json();
+        })
+        .then(data => {
+            if(!Array.isArray(data)) throw new Error("Invalid server response.");
+            let match = data.find(item => item.key === keyValue);
+            if(!match) {
+                setKeyStatus("Invalid key. Please obtain a valid key.", true);
+                return;
+            }
+            let expiresAt = parseExpiration(match["expires-in"]);
+            if(expiresAt && Date.now() > expiresAt.getTime()) {
+                setKeyStatus("This key has expired. Please request a new key.", true);
+                return;
+            }
+            setKeyStatus("Key validated. Welcome!", false);
+            unlockWithKey(match);
+        })
+        .catch(err => {
+            setKeyStatus(err.message || "Unable to validate key. Please try again.", true);
+        });
+}
+
+function initKeyGate() {
+    let cached = loadCachedKey();
+    if(cached && cached.key) {
+        let stillValid = true;
+        if(cached.expiresAt) {
+            let expDate = new Date(cached.expiresAt);
+            stillValid = !isNaN(expDate.getTime()) && Date.now() <= expDate.getTime();
+        }
+        if(stillValid) {
+            showConsoleUI();
+            return;
+        }
+    }
+    setKeyStatus("Enter a valid key to continue.", false);
+}
+
+function setLineColor(color, colorName) {
+    window.lineColor = color;
+    let colorDisplay = document.getElementById("currentColorDisplay");
+    if(colorDisplay) {
+        colorDisplay.textContent = colorName;
+        colorDisplay.style.color = color;
+    }
+    // Visual feedback - highlight selected color
+    let buttons = document.querySelectorAll(".color-option");
+    buttons.forEach(btn => {
+        // Get the color from onclick attribute
+        let onclickAttr = btn.getAttribute("onclick");
+        if(onclickAttr && onclickAttr.includes(color)) {
+            btn.style.border = "3px solid #FFFFFF";
+            btn.style.boxShadow = "0 0 15px " + color;
+        } else {
+            // Reset other buttons to default border
+            let originalBorder = btn.getAttribute("data-original-border");
+            if(!originalBorder) {
+                originalBorder = btn.style.border;
+                btn.setAttribute("data-original-border", originalBorder);
+            }
+            btn.style.border = originalBorder || "2px solid rgba(150, 100, 200, 0.5)";
+            btn.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.3)";
+        }
+    });
+}
+
+function updateTextSize(value) {
+    window.textSize = parseInt(value);
+    let textSizeEl = document.getElementById("textSizeValue");
+    if(textSizeEl) {
+        textSizeEl.textContent = value + "px";
+    }
+}
+
+function updateMinDistance(value) {
+    window.minDistance = parseInt(value);
+    let distanceEl = document.getElementById("minDistanceValue");
+    if(distanceEl) {
+        distanceEl.textContent = value + "px";
+    }
+}
+
+function updateObjectFilterList() {
+    let filterList = document.getElementById("objectFilterList");
+    if(!filterList) return;
+    
+    // Get all seen objects from the persistent map
+    let objectsArray = Array.from(window.allSeenObjects.values());
+    
+    // Sort by name alphabetically
+    objectsArray.sort(function(a, b) {
+        let nameA = a.name || String(a.id);
+        let nameB = b.name || String(b.id);
+        return nameA.localeCompare(nameB);
+    });
+    
+    // Check if we need to rebuild (if count changed or if container doesn't exist)
+    let existingContainer = filterList.querySelector('div[data-filter-container]');
+    let currentCount = existingContainer ? existingContainer.children.length : 0;
+    
+    if(objectsArray.length === 0) {
+        filterList.innerHTML = '';
+        let emptyMsg = document.createElement('p');
+        emptyMsg.style.cssText = 'color: rgba(232, 232, 232, 0.5); font-size: 11px; text-align: center; padding: 20px;';
+        emptyMsg.textContent = 'No objects detected. Enable ESP to see objects.';
+        filterList.appendChild(emptyMsg);
+        return;
+    }
+    
+    // Only rebuild if count changed or container doesn't exist
+    if(!existingContainer || currentCount !== objectsArray.length) {
+        filterList.innerHTML = '';
+        let container = document.createElement('div');
+        container.setAttribute('data-filter-container', 'true');
+        container.style.cssText = 'display: flex; flex-direction: column; gap: 8px;';
+        
+        for(let i = 0; i < objectsArray.length; i++) {
+            let obj = objectsArray[i];
+            let objId = obj.id;
+            let objName = obj.name || String(objId);
+            let isChecked = window.filteredObjects.has(objId);
+            
+            let label = document.createElement('label');
+            label.setAttribute('data-object-id', objId);
+            label.style.cssText = 'display: flex; align-items: center; gap: 10px; padding: 8px; background: rgba(100, 50, 150, 0.1); border-radius: 5px; cursor: pointer;';
+            
+            let checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = isChecked;
+            checkbox.setAttribute('data-object-id', objId);
+            checkbox.addEventListener('change', function(e) {
+                e.stopPropagation();
+                let id = parseInt(this.getAttribute('data-object-id'));
+                toggleObjectFilter(id, this.checked);
+            }, true);
+            
+            let span = document.createElement('span');
+            span.style.cssText = 'font-size: 13px; flex: 1;';
+            span.setAttribute('data-object-id', objId);
+            span.textContent = objName;
+            
+            label.appendChild(checkbox);
+            label.appendChild(span);
+            container.appendChild(label);
+        }
+        
+        filterList.appendChild(container);
+    }
+}
+
+function toggleObjectFilter(objectId, isFiltered) {
+    try {
+        if(isFiltered) {
+            window.filteredObjects.add(objectId);
+        } else {
+            window.filteredObjects.delete(objectId);
+        }
+    } catch(e) {
+        console.error("Error toggling filter:", e);
+    }
+}
+
+$(document).ready(function(){
+    //alert();
+    //绑定菜单点击切换子页面
+    $("div.menubox").click(function(){
+        if($(this).css("display") === "none") return; // Skip hidden menus
+        $("div.menubox").removeClass("current");
+        $("div.menuview").removeClass("current").addClass("hidden");
+        $(this).addClass("current");
+        
+        let menuid = $(this).attr("menu");
+        $("div#"+menuid).removeClass("hidden").addClass("current");
+        
+        // Update filter list when Filter menu is opened
+        if(menuid === "menu7") {
+            updateObjectFilterList();
+        }
+    });
+    
+    initKeyGate();
+    
+    /*禁止文本Option和拖动*/
+    document.body.onselectstart = document.body.ondrag =function(){
+        return false;
+    }
+    
+    $("input").blur(function(){
+        window.scroll(0,0); //文本框等输入完毕后页面自动滚动到顶部
+    });
+    
+    //激活webkit的button:active
+    document.body.addEventListener('touchstart', function () {});
+
+    if(typeof h5gg!='undefined') {
+
+        setWindowRect(0,0,window.screen.height,window.screen.width);
+
+        setButtonAction(function(){
+               
+               let menu = document.querySelector("#console");
+               if(menu.style.display=='none') {
+                   menu.style.display='block';
+                   //隐藏菜单之后, 设置触控穿透悬浮窗口
+                   setWindowTouch(true);
+               } else {
+                   menu.style.display='none';
+                   //显示菜单之后, 设置触控不可穿透悬浮窗口
+                   setWindowTouch(false);
+               }
+           
+          });
+
+        resetDebugInfo();
+        $("#MainComponentFilter").text("");
+        $("td[filter=SubComponentFilter]").closest("tr").remove();
+    }
+
+    // for(let i=0; i<8000; i++) //显示过多列表疯狂上拉刷新会爆内存崩溃
+    //         $("table#GameObject tbody").append("<tr><td>[0x13d84afc0] Character 214200107</td><td style=\"width:20px\" onclick=\"alert('count of Components in this GameObject')\">(5)</td></tr>");
+
+
+    //获取画布
+    let canvas = document.querySelector("#cav");
+    //设置按照屏幕像素尺寸绘图(高清模式)
+    let scale = window.devicePixelRatio;
+
+    canvas.width = window.screen.height * scale;
+    canvas.height = window.screen.width * scale;
+
+        //获取绘图
+    let ctx = canvas.getContext("2d", {alpha: false, desynchronized: false});
+
+    //添加圆角矩形功能
+    CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+        if (w < 2 * r) r = w / 2;
+        if (h < 2 * r) r = h / 2;
+        this.beginPath();
+        this.moveTo(x+r, y);
+        this.arcTo(x+w, y, x+w, y+h, r);
+        this.arcTo(x+w, y+h, x, y+h, r);
+        this.arcTo(x, y+h, x, y, r);
+        this.arcTo(x, y, x+w, y, r);
+        this.closePath();
+        return this;
+    }
+
+    window.gRoles = [];
+    window.lineColor = "#2DEC00";
+    window.textSize = 40;
+    window.minDistance = 150; // Minimum distance from center to show ESP indicators (in pixels)
+    window.filteredObjects = new Set(); // Set of object IDs to filter out
+    window.allSeenObjects = new Map(); // Map of object ID -> {name, id} for all objects ever seen
+    
+    // Initialize default color selection
+    setTimeout(function() {
+        setLineColor("#2DEC00", "Green");
+    }, 100);
+
+    // Function to draw an arrow pointing toward a target
+    function drawArrow(ctx, fromX, fromY, toX, toY, color, arrowSize) {
+        arrowSize = arrowSize || 25;
+        
+        // Calculate angle
+        let angle = Math.atan2(toY - fromY, toX - fromX);
+        
+        // Calculate distance from center to arrow position (show arrow at fixed distance from center)
+        let arrowDistance = 120; // Distance from center to show arrow
+        let arrowX = fromX + Math.cos(angle) * arrowDistance;
+        let arrowY = fromY + Math.sin(angle) * arrowDistance;
+        
+        // Save context
+        ctx.save();
+        
+        // Move to arrow position and rotate
+        ctx.translate(arrowX, arrowY);
+        ctx.rotate(angle);
+        
+        // Draw arrow (filled triangle pointing right, then rotated)
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        
+        ctx.beginPath();
+        // Arrow point (triangle)
+        ctx.moveTo(arrowSize, 0); // Tip of arrow
+        ctx.lineTo(-arrowSize * 0.6, -arrowSize * 0.5); // Bottom left
+        ctx.lineTo(-arrowSize * 0.3, 0); // Inner point
+        ctx.lineTo(-arrowSize * 0.6, arrowSize * 0.5); // Top left
+        ctx.closePath();
+        
+        // Fill and stroke for better visibility
+        ctx.fill();
+        ctx.stroke();
+        
+        // Draw a small circle at the base for better visibility
+        ctx.beginPath();
+        ctx.arc(-arrowSize * 0.2, 0, arrowSize * 0.3, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Restore context
+        ctx.restore();
+    }
+
+    function startdraw()
+    {
+        //清理画布开始新一轮绘图
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        if(window.draw_state==0) return;
+        
+        let centerX = canvas.width / 2;
+        let centerY = canvas.height / 2;
+
+        ctx.textBaseline="top";
+        ctx.textAlign="center";
+        ctx.font=window.textSize + 'px Tahoma';
+        ctx.fillStyle=window.lineColor;
+        
+        // Track all seen objects by ID (just store them, don't update UI here)
+        for(let i=0; i<gRoles.length; i++) {
+            let objId = gRoles[i].id;
+            let objName = gRoles[i].name || gRoles[i].id || "Unknown";
+            if(objId && !window.allSeenObjects.has(objId)) {
+                window.allSeenObjects.set(objId, {name: objName, id: objId});
+            }
+        }
+        
+        for(let i=0; i<gRoles.length; i++)
+        {
+            let objectId = gRoles[i].id;
+            
+            // Skip if object is filtered out (by ID)
+            if(window.filteredObjects.has(objectId)) {
+                continue;
+            }
+            
+            let x = gRoles[i].x*window.devicePixelRatio;
+            let y = gRoles[i].y*window.devicePixelRatio;
+
+            // Calculate distance from center to enemy
+            let dx = x - centerX;
+            let dy = y - centerY;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Only draw ESP indicators if enemy is beyond minimum distance
+            if(distance < window.minDistance) {
+                continue; // Skip drawing for enemies too close
+            }
+
+            // Draw arrow pointing toward enemy (if enabled)
+            if(window.drawRayline) {
+                drawArrow(ctx, centerX, centerY, x, y, window.lineColor, 25);
+            }
+            
+            // Draw box (rectangle) around the object
+            let boxSize = 30;
+            ctx.strokeStyle = window.lineColor;
+            ctx.lineWidth = 2;
+            ctx.strokeRect(x - 100/2, y - 200/2, 100, 120);
+            
+            // Draw object name below the box
+            ctx.fillText(gRoles[i].name || gRoles[i].id, x, y + boxSize/2 + 5);
+        }
+        
+        // Yellow box and count display hidden
+        // ctx.lineWidth=0;
+        // ctx.fillStyle="#FFFF00A0";
+        // ctx.strokeStyle="#FFFF0080";
+        // ctx.roundRect((canvas.width-200)/2, 30, 200, 60, 15).fill();
+        // 
+        // ctx.textBaseline="top";
+        // ctx.textAlign="center";
+        // ctx.fillStyle="black";
+        // ctx.font='60px "Arial, sans-serif"';
+        // ctx.fillText(gRoles.length, canvas.width/2,25);
+        
+        //计算FPS
+        if(!window.fpscount) window.fpscount=0;
+        if(!window.fpstime) window.fpstime=performance.now();
+        window.fpscount++;
+        if((performance.now()-window.fpstime)>2022) //year
+        {
+            window.fps = window.fpscount;
+            window.fpstime = performance.now();
+            window.fpscount = 0;
+        }
+        
+        ctx.fillStyle="red";
+        if(window.fps) ctx.fillText("FPS:"+window.fps, 120,30);
+    }
+    
+    //默认关闭绘图
+    window.draw_state = 1;
+    
+    //* 定时器绘图, 在JS线程, 不影响APP帧率, 不要使用requestAnimationFrame会导致APP卡顿
+    setInterval(function(){
+        startdraw();
+    }, 33);//*/
+
+    document.addEventListener("touchmove", function(e) {
+        const excludeEl = document.querySelectorAll(".scrollbar");
+        const isExclude = Array.prototype.some.call(excludeEl, function(el) {
+            return el.contains(e.target) && el.clientHeight<el.scrollHeight;
+        });
+        //console.log(isExclude, e.target);
+        if (isExclude) {
+            return true;
+        }
+        e.preventDefault();
+    }, { passive: false } );
+});
+
+</script>
+
+</head>
+
+<body>
+
+<!--全屏画板-->
+<canvas id="cav" width="100%" height="100%" style="width:100%;height:100%;"></canvas>
+
+<div id="keyGate">
+    <div class="key-box">
+        <h2>MLBB EdgyHacks Access</h2>
+        <p style="font-size:12px; color:rgba(232,232,232,0.7); text-align:center; margin:0;">
+            Enter your access key to unlock the mod menu.
+        </p>
+        <input id="keyInput" class="key-input" placeholder="Enter access key" />
+        <div class="key-actions">
+            <button onclick="attemptKeyLogin()">Enter</button>
+            <button onclick="window.open('https://www.patreon.com/posts/mobile-legends-143930474?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link','_blank')">Get Key</button>
+        </div>
+        <div id="keyStatus" class="key-status"></div>
+    </div>
+</div>
+
+<!--悬浮菜单-->
+<div id="console" style="display:none;">
+<!--用一个表格来布局左右两栏-->
+<table id="bodyView" width="100%" style="table-layout:fixed;height:100%;">
+    
+<tr>
+    
+<td width="75" style="vertical-align:top; border-right: 1px solid gray;">
+    
+<div>
+	<div id="titleBar" style="border-bottom: 1px solid rgba(150, 100, 200, 0.3);text-align:center; padding:10px; margin:0px;" onclick="if(/http/.test(location))location.reload(true)">
+        MLBB<br/><span style="font-size:11px; opacity:0.8;">EdgyHacks</span>
+    </div>
+    <div class="menubox" menu="menu1" style="display:none;">Initialize</div>
+    <div class="menubox" menu="menu2" style="display:none;">GameObject</div>
+    <div class="menubox" menu="menu3" style="display:none;">Component</div>
+    <div class="menubox" menu="menu4" style="display:none;">Filter&Draw</div>
+    <div class="menubox current" menu="menu5">Mods</div>
+    <div class="menubox" menu="menu7">Filter</div>
+    <div class="menubox" menu="menu6">Credits</div>
+    <div style="border-top: 1px solid rgba(150, 100, 200, 0.3);padding:5px; margin:0px; display:none;">
+ 	<button onclick="refreshUnityData()">refresh</button>
+   </div>
+</div>
+</td>
+<td style="vertical-align:top">
+<div id="menu1" class="menuview hidden">
+<p>Universal Unity Debug Tool</p>
+<p><button onclick="init_via_il2cpp_api()">init via il2cpp apis</button></p>
+<p><button onclick="alert('unsupported yet!')">init via sdk offsets</button></p>
+<p><button onclick="alert('unsupported yet!')">init via IDA offsets</button></p>
+<p><button onclick="alert('unsupported yet!')">init via search pattern</button></p>
+<p>GameObjectCount: <span id="GameObjectTotalCount">0</span></p>
+</div>
+
+<div id="menu2" class="menuview hidden">
+<input style="width:100%;margin-bottom:5px" placeholder="Filter by ID/Name/Components" onchange="refreshGameObject()" id="filterGameObject" onfocus="if(this.value.indexOf('hasComponent:')==0)$(this).val('').change();" />
+<div style="overflow-y: scroll;height:calc(100% - 30px);" class="scrollbar">
+<table id="GameObject" class="objectlist">
+<tr><td>[-1234] Character 214200107</td><td style="width:20px" onclick="alert('count of Components in this GameObject')">(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+<tr><td>[-1234] Character 214200107</td><td>(5)</td></tr>
+</table>
+</div>
+</div>
+
+<div id="menu3" class="menuview hidden">
+<input style="width:100%;margin-bottom:5px" placeholder="Filter by Type Name of Component" onchange="refreshComponent()" id="filterComponent" />
+<div style="overflow-y: scroll;height:calc(100% - 30px);" class="scrollbar">
+<table id="Component" class="objectlist">
+<tr><td>UnityEngine.Transform</td><td style="width:40px" onclick="alert('count of GameObjects that have this Component')">(1000)</td></tr>
+<tr><td>UnityEngine.RectTransform <span style="float:right">(1000)</span></td></tr>
+<tr><td>UnityEngine.Animator <span style="float:right">(1000)</span></td></tr>
+<tr><td>UnityEngine.CanvasRenderer <span style="float:right">(1000)</span></td></tr>
+<tr><td>UnityEngine.UI.Image <span style="float:right">(1000)</span></td></tr>
+<tr><td>UnityEngine.UI.Button <span style="float:right">(1000)</span></td></tr>
+<tr><td>UnityEngine.CanvasGroup <span style="float:right">(1000)</span></td></tr>
+<tr><td>UnityEngine.Rigidbody <span style="float:right">(1000)</span></td></tr>
+<tr><td>UnityEngine.CapsuleCollider <span style="float:right">(1000)</span></td></tr>
+<tr><td>CriticalOps.Gameplay.BoundingSphere <span style="float:right">(1000)</span></td></tr>
+<tr><td>CriticalOps.Gameplay.CharacterViewFirstPerson <span style="float:right">(1000)</span></td></tr>
+<tr><td>CriticalOps.Gameplay.CharacterViewThirdPerson <span style="float:right">(1000)</span></td></tr>
+<tr><td>CriticalOps.Gameplay.LocalCharacter <span style="float:right">(1000)</span></td></tr>
+</table>
+</div>
+</div>
+
+<div id="menu4" class="menuview scrollbar hidden">
+
+<table id="DrawFilter" style="width:100%" border=1>
+<tr style="background-color:black; height:25px"><td width=100>&nbsp;&nbsp;Filter</td><td>&nbsp;&nbsp;Value</td></tr>
+
+<tr style="height:30px"><td>MainCamera</td><td>
+<select id="MainCameraFilter" style="padding: 0 2%;"><option style="text-align:center;" value="">&nbsp Default Main Camera &nbsp</option></select>
+</td></tr>
+
+<tr style="height:30px"><td>MainComponent&nbsp;&nbsp;<span style="color:green" onclick="alert('The Less Count of Main Component, the Faster the Drawing')">[?]</span></td><td id="MainComponentFilter">UnityEngine.CapsuleCollider</td></tr>
+
+<tr style="height:30px"><td>GameObjectName</td>
+<td><select id="GameObjectNameFilterType"><option value=1>&nbsp;Equal</option><option value=2>Contain</option></select>
+<input id="GameObjectNameFilter" placeholder="tap to set Name Filter (Case Sensitive)" style="width:220px" /></td></tr>
+
+<tr style="height:30px"><td>+ SubComponent</td><td filter="SubComponentFilter">UnityEngine.Rigidbody
+<span style="color:red" onclick="alert()">&nbsp[X]</span></td></tr>
+
+<tr style="height:30px"><td>+ SubComponent</td><td filter="SubComponentFilter">CriticalOps.Gameplay.LocalCharacter
+<span style="color:red" onclick="alert()">&nbsp[X]</span></td></tr>
+
+</table>
+<br/>
+<label><input type="checkbox" id="drawRayline" />drawRayline</label>&nbsp;&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" id="w2sInMainThread" />w2sInMainThread</label>&nbsp;&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" id="calcInMainThread" />calcInMainThread</label>
+
+<br/><br/>
+<center><button id="draw_button" onclick="on_draw_button_click()">startDraw</button></center>
+</div>
+
+<div id="menu5" class="menuview scrollbar current">
+<div class="mod-section">
+<p style="font-size:16px; font-weight:bold; margin-bottom:15px; color: #9B59B6; text-shadow: 0 2px 4px rgba(155, 89, 182, 0.3);">Automated Mods</p>
+<label style="display: flex; align-items: center; gap: 10px; margin: 15px 0; cursor: pointer;">
+    <input type="checkbox" id="autoESP" onchange="toggleAutoESP()" /> 
+    <span style="font-size:14px; font-weight:600;">Auto ESP (Hero Detection)</span>
+</label>
+</div>
+
+<div class="mod-section">
+<p style="font-size:16px; font-weight:bold; margin-bottom:15px; color: #9B59B6; text-shadow: 0 2px 4px rgba(155, 89, 182, 0.3);">Visual Customization</p>
+
+<div style="margin: 15px 0;">
+    <div style="margin-bottom: 10px; font-size: 13px; color: #E8E8E8;">Line Color: <span id="currentColorDisplay" style="color: #2DEC00; font-weight: bold;">Green</span></div>
+    <div id="colorPicker" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px;">
+        <button class="color-option" onclick="setLineColor('#2DEC00', 'Green')" style="background: #2DEC00; border: 2px solid rgba(45, 236, 0, 0.5);" title="Green"></button>
+        <button class="color-option" onclick="setLineColor('#FF0000', 'Red')" style="background: #FF0000; border: 2px solid rgba(255, 0, 0, 0.5);" title="Red"></button>
+        <button class="color-option" onclick="setLineColor('#9B59B6', 'Purple')" style="background: #9B59B6; border: 2px solid rgba(155, 89, 182, 0.5);" title="Purple"></button>
+        <button class="color-option" onclick="setLineColor('#3498DB', 'Blue')" style="background: #3498DB; border: 2px solid rgba(52, 152, 219, 0.5);" title="Blue"></button>
+        <button class="color-option" onclick="setLineColor('#F39C12', 'Orange')" style="background: #F39C12; border: 2px solid rgba(243, 156, 18, 0.5);" title="Orange"></button>
+        <button class="color-option" onclick="setLineColor('#FFFF00', 'Yellow')" style="background: #FFFF00; border: 2px solid rgba(255, 255, 0, 0.5);" title="Yellow"></button>
+        <button class="color-option" onclick="setLineColor('#E74C3C', 'Crimson')" style="background: #E74C3C; border: 2px solid rgba(231, 76, 60, 0.5);" title="Crimson"></button>
+        <button class="color-option" onclick="setLineColor('#1ABC9C', 'Turquoise')" style="background: #1ABC9C; border: 2px solid rgba(26, 188, 156, 0.5);" title="Turquoise"></button>
+        <button class="color-option" onclick="setLineColor('#E91E63', 'Pink')" style="background: #E91E63; border: 2px solid rgba(233, 30, 99, 0.5);" title="Pink"></button>
+        <button class="color-option" onclick="setLineColor('#00FF00', 'Lime')" style="background: #00FF00; border: 2px solid rgba(0, 255, 0, 0.5);" title="Lime"></button>
+        <button class="color-option" onclick="setLineColor('#FF00FF', 'Magenta')" style="background: #FF00FF; border: 2px solid rgba(255, 0, 255, 0.5);" title="Magenta"></button>
+        <button class="color-option" onclick="setLineColor('#00FFFF', 'Cyan')" style="background: #00FFFF; border: 2px solid rgba(0, 255, 255, 0.5);" title="Cyan"></button>
+    </div>
+</div>
+
+<div class="slider-container">
+    <div class="slider-label">
+        <span>Text Size</span>
+        <span id="textSizeValue">40px</span>
+    </div>
+    <input type="range" id="textSizeSlider" min="20" max="80" value="40" oninput="updateTextSize(this.value)" />
+</div>
+
+<div class="slider-container">
+    <div class="slider-label">
+        <span>Hide Distance</span>
+        <span id="minDistanceValue">150px</span>
+    </div>
+    <div style="font-size: 11px; color: rgba(232, 232, 232, 0.7); margin-bottom: 5px;">Hide ESP when enemy is closer than this distance</div>
+    <input type="range" id="minDistanceSlider" min="50" max="300" value="150" oninput="updateMinDistance(this.value)" />
+</div>
+</div>
+</div>
+
+<div id="menu7" class="menuview scrollbar">
+<div class="mod-section">
+<p style="font-size:16px; font-weight:bold; margin-bottom:15px; color: #9B59B6; text-shadow: 0 2px 4px rgba(155, 89, 182, 0.3);">Object Filter</p>
+<p style="font-size:12px; color: rgba(232, 232, 232, 0.7); margin-bottom: 10px;">Check objects to hide them from ESP</p>
+<div id="objectFilterList" style="max-height: 300px; overflow-y: auto;">
+    <p style="color: rgba(232, 232, 232, 0.5); font-size: 11px; text-align: center; padding: 20px;">No objects detected yet. Enable ESP to see objects.</p>
+</div>
+</div>
+</div>
+
+<div id="menu6" class="menuview scrollbar">
+<div class="mod-section">
+<p style="font-size:18px; font-weight:bold; margin-bottom:20px; color: #9B59B6; text-align:center; text-shadow: 0 2px 4px rgba(155, 89, 182, 0.3);">Credits</p>
+<div style="line-height: 1.8; color: #E8E8E8;">
+<p style="font-size:14px; margin: 10px 0;"><strong>MLBB EdgyHacks</strong></p>
+<p style="font-size:12px; margin: 8px 0; color: rgba(232, 232, 232, 0.8);">Unity ESP Tool</p>
+<p style="font-size:12px; margin: 8px 0; color: rgba(232, 232, 232, 0.8);">Built with Frida</p>
+<br/>
+<img src="https://media1.tenor.com/m/97NOLcqzpn0AAAAd/onic-joy.gif" alt="" style="width: 150px; height: auto;">
+<p style="font-size:12px; margin: 8px 0; color: rgba(232, 232, 232, 0.6);">Version 1.1</p>
+</div>
+</div>
+</div>
+
+</td>
+
+</tr>
+
+</table>
+
+
+<style>
+
+.maskview {
+	display: none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=60);
+    background-color: #777;
+    z-index: 1001;
+    opacity:0.5;
+}
+.popup_container {
+    position:absolute;
+    z-index: 1002;
+    left:50%;
+    top:0;
+}
+    
+#popup_component {
+    z-index: 1003;
+	display: none;
+    text-align: center;
+    background-color: #122220;
+    width:380px;
+    height:80px;
+    position:absolute;
+    left:-200px; top:100px;
+    border:1px solid #B8B8B880;
+    border-radius: 5px;
+    padding: 10px;
+    text-align:left;
+}
+
+#popup_gameobject {
+	display: none;
+    text-align: center;
+    background-color: #122220;
+    width:450px;
+    height:220px;
+    position:absolute;
+    left:-220px; top:20px;
+    border:1px solid #B8B8B880;
+    border-radius: 5px;
+    padding: 10px;
+    text-align:left;
+}
+
+</style>
+<div id="maskview" class="maskview"></div>
+<div class="popup_container">
+
+<div id="popup_gameobject">
+<div style="overflow-y: scroll;height:calc(100% - 30px);" class="scrollbar">
+<table border=1 style="width:100%" class="srollbar" id="GameObjectInfo">
+<tr><td width=100>GameObjectID</td><td id="GameObjectID">-1234</td></tr>
+<tr><td width=100>GameObjectName</td><td id="GameObjectName">Character 214200107</td></tr>
+<tr><td width=100 >ComponentCount</td><td id="ComponentCount">5</td></tr>
+<tr><td colspan=2 style="text-align:center">Components</td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.Transform<span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.RectTransform <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.Animator <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.CanvasRenderer <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.UI.Image <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.UI.Button <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.CanvasGroup <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.Rigidbody <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">UnityEngine.CapsuleCollider <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">CriticalOps.Gameplay.BoundingSphere <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">CriticalOps.Gameplay.CharacterViewFirstPerson <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">CriticalOps.Gameplay.CharacterViewThirdPerson <span style="float:right">(1000)</span></td></tr>
+<tr><td colspan=2 type="GameObjectComponent">CriticalOps.Gameplay.LocalCharacter <span style="float:right">(1000)</span></td></tr>
+</table>
+</div>
+<br/>
+<div style="text-align:center; color:green; font-size:16px; font-family: Arial, sans-serif;" onclick="showGameObjectInfo(-1)">[X]</div>
+</div>
+
+<div id="popup_component">
+<span id="componentType">CriticalOps.Gameplay.CharacterViewThirdPerson</span>
+<div style="float:right; font-size:16px; font-family: Arial, sans-serif;" onclick="showComponentOprator(null,null)">X&nbsp;</div>
+<br/><br/><br/>
+&nbsp;&nbsp;&nbsp;
+<button onclick="setMainComponentFilter()">set MainComponent Filter</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="addSubComponentFilter()">add SubComponent Filter</button>
+</div>
+</div>
+
+</div>
+
+
+<script>
+
+function showComponentOprator(type, image)
+{
+	if(type&&image) {
+		$("#maskview").show();
+		$("#popup_component").show();
+		
+		$("#popup_component").attr('type', type);
+		$("#popup_component").attr('imagefile', image);
+
+        $("#componentType").text(type);
+	
+	} else {
+		$("#maskview").hide();
+		$("#popup_component").hide();
+	}
+}
+
+function showGameObjectByComponent(type)
+{
+    $("#popup_gameobject").hide();
+    $("#maskview").hide();
+
+    $("#filterGameObject").val("hasComponent:"+type);
+
+    $("div.menubox").removeClass("current");
+    $("div.menuview").removeClass("current");
+    
+    $("div[menu=menu2]").addClass("current");
+    $("div#menu2").addClass("current");
+
+    refreshGameObject();
+}
+
+function checkSubComponentFilterExist(type, imagefile)
+{
+    let found=false;
+    $("td[filter=SubComponentFilter]").each(function() {
+    	if($(this).attr("type")==type && $(this).attr("imagefile")==imagefile)
+            found = true;
+    });
+    return found;
+}
+
+function setMainComponentFilter()
+{
+    if(window.drawing) {
+        alert("please stopDraw first!");
+        return;
+    }
+
+	let type = $("#popup_component").attr('type');
+	let imagefile = $("#popup_component").attr('imagefile');
+    if(checkSubComponentFilterExist(type, imagefile)) {
+        alert("this Type of Component is already in SubComponentFilters");
+        return;
+    }
+
+	$("#MainComponentFilter").attr("type", type);
+	$("#MainComponentFilter").attr("imagefile", imagefile);
+	
+	$("#MainComponentFilter").text(type);
+
+    $("#maskview").hide();
+    $("#popup_component").hide();
+}
+
+function addSubComponentFilter()
+{
+    if(window.drawing) {
+        alert("please stopDraw first!");
+        return;
+    }
+
+	let type = $("#popup_component").attr('type');
+	let imagefile = $("#popup_component").attr('imagefile');
+
+    if(type==$("#MainComponentFilter").attr("type") && imagefile==$("#MainComponentFilter").attr("imagefile")) {
+        alert("this Type of Component is already the MainComponentFilter!");
+        return;
+    }
+
+    $("#maskview").hide();
+    $("#popup_component").hide();
+
+    if(checkSubComponentFilterExist(type, imagefile)) {
+        return;
+    }
+	let row = "<tr style='height:30px'><td>+ SubComponent</td><td filter='SubComponentFilter' type='"+type+"' imagefile='"+imagefile+"'>"+type
+        +"<span style='color:red' onclick='if(!window.drawing)$(this).closest(\"tr\").remove()''>&nbsp[X]</span></td></tr>";
+	$("#DrawFilter tbody").append(row);
+
+}
+
+
+function disableFilterControls(disabled) {
+	$("#MainCameraFilter").attr("disabled", disabled);
+	$("#GameObjectNameFilter").attr("disabled", disabled);
+	$("#GameObjectNameFilterType").attr("disabled", disabled);
+	
+	$("#drawRayline").attr("disabled", disabled);
+	$("#w2sInMainThread").attr("disabled", disabled);
+	$("#calcInMainThread").attr("disabled", disabled);
+}
+
+function on_draw_button_click()
+{
+    if(!window.init_ok) {
+        alert("please init first!");
+        return;
+    }
+	if($("#draw_button").text()!="startDraw")
+    {
+		$("#draw_button").text("startDraw");
+		disableFilterControls(false);
+        script.call("stopDraw");
+        window.drawing=false;
+        // Uncheck Auto ESP if it was enabled
+        if($("#autoESP").prop('checked')) {
+            $("#autoESP").prop('checked', false);
+        }
+        return;
+	}
+
+    let MainComponentFilter = {
+        type:$("#MainComponentFilter").attr("type"),
+        image:$("#MainComponentFilter").attr("imagefile")
+    };
+    if(!MainComponentFilter.type) {
+        alert("please set MainComponentFilter first!");
+        return;
+    }
+    
+    let GameObjectNameFilter = {
+    	type:$("#GameObjectNameFilterType").val(),
+    	value:$("#GameObjectNameFilter").val()
+    };
+    
+    let SubComponentFilters = [];
+    
+    $("td[filter=SubComponentFilter]").each(function() {
+    	SubComponentFilters.push($(this).attr("type"));
+    });
+
+    // Team filter removed from UI but kept in code for compatibility
+    let TeamCheck = null;
+
+	let drawArgs = {
+		MainCameraFilter:$("#MainCameraFilter").val(),
+		MainComponentFilter:MainComponentFilter, 
+		GameObjectNameFilter:GameObjectNameFilter, 
+		SubComponentFilters:SubComponentFilters,
+        TeamCheck: TeamCheck,
+		w2sInMainThread:$("#w2sInMainThread").prop('checked'),
+        calcInMainThread:$("#calcInMainThread").prop('checked'),
+	};
+	
+	window.drawRayline = $("#drawRayline").prop('checked');
+
+    if(script.call("startDraw", [drawArgs]))
+    {
+        $("#draw_button").text("stopDraw");
+	    disableFilterControls(true);
+        window.drawing=true;
+    }
+}
+
+let gUnityData = {};
+
+function showGameObjectInfo(i)
+{
+    if(i!=-1) {
+        $("#popup_gameobject").show();
+        $("#maskview").show();
+
+        $("td[type=GameObjectComponent]").parent("tr").remove();
+
+        let item = gUnityData.gameObjects[i];
+        let instanceID=item[0]; let name=item[1]; let components=item[2];
+
+        $("td#GameObjectID").text(instanceID);
+        $("td#GameObjectName").text(name);
+        $("td#ComponentCount").text(components.length);
+
+        components=components.map(function(index) {
+            let item = gUnityData.components[index];
+            let row = "<tr style=\"height:30px\"><td colspan=2 type=\"GameObjectComponent\" onclick=\"showGameObjectByComponent('"+item.type+"')\"><a href='#'>" +item.type +"</a>&nbsp<span style='color:green' onclick='showComponentOprator(\""+item.type+'","'+item.image+"\");event.stopImmediatePropagation()'>&nbsp[+]</span>" 
+                + "<span style=\"float:right\">("+ item.count +")&nbsp&nbsp</span></td></tr>";
+            $("#GameObjectInfo tbody").append(row);
+        });
+    } else {
+        $("#popup_gameobject").hide();
+        $("#maskview").hide();
+    }
+}
+
+function refreshGameObject()
+{
+    $("table#GameObject tr").remove();
+
+    let filter = $("#filterGameObject").val();
+    let hasComponent = filter.indexOf("hasComponent:")==0;
+    let ComponentIndex = -1;
+    if(hasComponent) {
+        let ComponentType = filter.substring("hasComponent:".length);
+        for(let i=0; i<gUnityData.components.length; i++) {
+            if(ComponentType==gUnityData.components[i].type) {
+                ComponentIndex = i;
+                break;
+            }
+        }
+        if(ComponentIndex==-1) {
+            alert("Invalid Component Type Filter!");
+        }
+    }
+
+    filter = filter.toLowerCase();
+
+    let hasFilter = /[^\s]+/.test(filter);
+    let count=0;
+    for(let i=0; i<gUnityData.gameObjects.length; i++)
+    {
+        let item = gUnityData.gameObjects[i];
+        let instanceID=item[0]; let name=item[1]; let components=item[2];
+        if(!hasFilter || instanceID==filter || name.toLowerCase().indexOf(filter)!=-1 || components.indexOf(ComponentIndex)!=-1)
+        {
+            let row = "<tr><td onclick=\"showGameObjectInfo("+i+")\">["+ instanceID +"] " + name +"</td>" 
+                + "<td style=\"width:25px\" onclick=\"alert('count of Components in this GameObject')\">("+ components.length +")</td></tr>";
+
+            $("table#GameObject tbody").append(row);
+
+            if(count++>1000) break;
+        }
+    }
+}
+
+function refreshComponent()
+{
+    $("table#Component tr").remove();
+
+    let filter = $("#filterComponent").val().toLowerCase();
+    let hasFilter = /[^\s]+/.test(filter);
+
+    let components = gUnityData.components.concat();
+    components.sort( function(a,b){
+        return a.type.localeCompare(b.type);
+    });
+
+    for(let i=0; i<components.length; i++)
+    {
+    	let item = components[i];
+        if(!hasFilter || item.type.toLowerCase().indexOf(filter)!=-1)
+        {
+            let row = "<tr><td onclick=\"showGameObjectByComponent('"+item.type+"')\">" +item.type +"&nbsp<span style='color:green' onclick='showComponentOprator(\""+item.type+'","'+item.image+"\");event.stopImmediatePropagation()'>&nbsp[+]</span></td>" 
+                + "<td style=\"width:40px\" onclick=\"alert('count of Components of this Type')\">("+ item.count +")</td></tr>";
+
+            $("table#Component tbody").append(row);
+        }
+    }
+}
+
+function refreshList()
+{
+    if(!gUnityData) return;
+
+    $("#GameObjectCount").html("valid:"+gUnityData.gameObjects.length);
+    $("#ComponentCount").html("types:"+gUnityData.components.length);
+    $("#GameObjectTotalCount").html(gUnityData.gameObjectCount);
+
+    refreshGameObject();
+
+    refreshComponent();
+
+    let MainCameraFilter = $("#MainCameraFilter").val();
+    $("#MainCameraFilter option[value!='']").remove();
+
+    for(let i=0; i<gUnityData.cameras.length; i++) {
+        let camera = gUnityData.cameras[i];
+        $("#MainCameraFilter").append("<option value='"+camera.addr+"'>" + camera.desc + "</option>");
+    }
+
+    $("#MainCameraFilter").val(MainCameraFilter);
+}
+
+
+function refreshUnityData()
+{
+    if(!window.init_ok) {
+        alert("please init first!");
+        return;
+    }
+
+    resetDebugInfo();
+
+    setTimeout(function(){
+        gUnityData=script.call("getdata");
+        refreshList();
+    }, 100);
+}
+
+function recv_frida_data(payload)
+{
+    //console.log(JSON.stringify(payload));
+    if(payload.type=="draw")
+        gRoles = payload.data;
+    else if(payload.type=="error") {
+        let errorMsg = payload.data;
+        if(typeof errorMsg === "string" && errorMsg.indexOf("not found") !== -1) {
+            // Component not found, stop drawing gracefully
+            if(window.drawing) {
+                script.call("stopDraw");
+                window.drawing = false;
+                $("#draw_button").text("startDraw");
+                disableFilterControls(false);
+                if($("#autoESP").prop('checked')) {
+                    $("#autoESP").prop('checked', false);
+                }
+            }
+        } else {
+            alert("frida error:\n"+JSON.stringify(payload.data,null,1).replaceAll("\\n","\n"));
+        }
+    }
+}
+
+function init_via_il2cpp_api()
+{
+    if(script.call("init_via_il2cpp_api")) {
+        window.init_ok=true;
+        refreshUnityData();
+    }
+}
+
+function toggleAutoESP()
+{
+    let espEnabled = $("#autoESP").prop('checked');
+    
+    if(espEnabled) {
+        // Enable Auto ESP
+        enableAutoESP();
+    } else {
+        // Disable Auto ESP
+        disableAutoESP();
+    }
+}
+
+function enableAutoESP()
+{
+    try {
+        // Step 1: Initialize il2cpp if not already done
+        if(!window.init_ok) {
+            if(!script.call("init_via_il2cpp_api")) {
+                alert("Failed to initialize il2cpp API!");
+                $("#autoESP").prop('checked', false);
+                return;
+            }
+            window.init_ok = true;
+        }
+        
+        // Step 2: Refresh Unity data to get component list
+        if(!gUnityData || !gUnityData.components || gUnityData.components.length === 0) {
+            resetDebugInfo();
+            setTimeout(function(){
+                try {
+                    gUnityData = script.call("getdata");
+                    if(!gUnityData || !gUnityData.components) {
+                        alert("Failed to get Unity data! Please refresh manually first.");
+                        $("#autoESP").prop('checked', false);
+                        return;
+                    }
+                    refreshList();
+                    setupAutoESP();
+                } catch(e) {
+                    alert("Error getting Unity data: " + e);
+                    $("#autoESP").prop('checked', false);
+                }
+            }, 100);
+        } else {
+            setupAutoESP();
+        }
+    } catch(e) {
+        alert("Error enabling Auto ESP: " + e);
+        $("#autoESP").prop('checked', false);
+    }
+}
+
+function setupAutoESP()
+{
+    try {
+        // Step 3: Refresh Unity data and find ObjectOption2 component
+        resetDebugInfo();
+        setTimeout(function(){
+            try {
+                gUnityData = script.call("getdata");
+                if(!gUnityData || !gUnityData.components || gUnityData.components.length === 0) {
+                    alert("Please start the game first.");
+                    $("#autoESP").prop('checked', false);
+                    return;
+                }
+                refreshList();
+                
+                // Find ObjectOption2 component
+                let objectOption2Component = null;
+                for(let i = 0; i < gUnityData.components.length; i++) {
+                    let comp = gUnityData.components[i];
+                    if(comp.type && comp.type.toLowerCase().indexOf("objectoption2") !== -1) {
+                        objectOption2Component = comp;
+                        break;
+                    }
+                }
+                
+                if(!objectOption2Component) {
+                    alert("Please start the game first.");
+                    $("#autoESP").prop('checked', false);
+                    return;
+                }
+                
+                // Continue with setup
+                continueESPSetup(objectOption2Component);
+            } catch(e) {
+                alert("Please start the game first.");
+                $("#autoESP").prop('checked', false);
+            }
+        }, 100);
+        
+    } catch(e) {
+        alert("Error setting up Auto ESP: " + e);
+        $("#autoESP").prop('checked', false);
+    }
+}
+
+function continueESPSetup(objectOption2Component) {
+    try {
+        
+        // Step 4: Stop drawing if already running
+        if(window.drawing) {
+            script.call("stopDraw");
+            window.drawing = false;
+            $("#draw_button").text("startDraw");
+        }
+        
+        // Step 5: Set MainComponentFilter to ObjectOption2
+        $("#MainComponentFilter").attr("type", objectOption2Component.type);
+        $("#MainComponentFilter").attr("imagefile", objectOption2Component.image);
+        $("#MainComponentFilter").text(objectOption2Component.type);
+        
+        // Step 6: Set GameObjectName filter to contain "hero"
+        $("#GameObjectNameFilterType").val(2); // 2 = Contain
+        $("#GameObjectNameFilter").val("hero");
+        
+        // Step 7: Enable drawRayline
+        $("#drawRayline").prop('checked', true);
+        window.drawRayline = true;
+        
+        // Step 8: Clear SubComponent filters (optional, for clean setup)
+        $("td[filter=SubComponentFilter]").closest("tr").remove();
+        
+        // Step 9: Start drawing
+        setTimeout(function() {
+            try {
+                let MainComponentFilter = {
+                    type: $("#MainComponentFilter").attr("type"),
+                    image: $("#MainComponentFilter").attr("imagefile")
+                };
+                
+                let GameObjectNameFilter = {
+                    type: $("#GameObjectNameFilterType").val(),
+                    value: $("#GameObjectNameFilter").val()
+                };
+                
+                let SubComponentFilters = [];
+                $("td[filter=SubComponentFilter]").each(function() {
+                    SubComponentFilters.push($(this).attr("type"));
+                });
+                
+                let drawArgs = {
+                    MainCameraFilter: $("#MainCameraFilter").val(),
+                    MainComponentFilter: MainComponentFilter,
+                    GameObjectNameFilter: GameObjectNameFilter,
+                    SubComponentFilters: SubComponentFilters,
+                    w2sInMainThread: $("#w2sInMainThread").prop('checked'),
+                    calcInMainThread: $("#calcInMainThread").prop('checked'),
+                };
+                
+                if(script.call("startDraw", [drawArgs])) {
+                    $("#draw_button").text("stopDraw");
+                    disableFilterControls(true);
+                    window.drawing = true;
+                } else {
+                    alert("Failed to start drawing!");
+                    $("#autoESP").prop('checked', false);
+                }
+            } catch(e) {
+                alert("Error starting draw: " + e);
+                $("#autoESP").prop('checked', false);
+            }
+        }, 200);
+        
+    } catch(e) {
+        alert("Error setting up Auto ESP: " + e);
+        $("#autoESP").prop('checked', false);
+    }
+}
+
+function disableAutoESP()
+{
+    try {
+        // Stop drawing if running
+        if(window.drawing) {
+            script.call("stopDraw");
+            window.drawing = false;
+            $("#draw_button").text("startDraw");
+            disableFilterControls(false);
+        }
+        
+        // Optionally reset filters (commented out to preserve user settings)
+        // $("#MainComponentFilter").text("");
+        // $("#MainComponentFilter").removeAttr("type");
+        // $("#MainComponentFilter").removeAttr("imagefile");
+        // $("#GameObjectNameFilter").val("");
+        // $("#drawRayline").prop('checked', false);
+        // window.drawRayline = false;
+        
+    } catch(e) {
+        alert("Error disabling Auto ESP: " + e);
+    }
+}
+
+h5gg.require(7.9); //设定最低需求的H5GG版本号//min version support for H5GG
+
+//将h5frida-15.1.24.dylib放到.app目录中 //put h5frida-15.1.24.dylib into .app folder of ipa
+let h5frida=h5gg.loadPlugin("h5frida", "/Library/MobileSubstrate/DynamicLibraries/h5frida.dylib");
+if(!h5frida && !(h5frida=h5gg.loadPlugin("h5frida", "h5frida-15.1.24.dylib"))) throw "加载h5frida插件失败\n\nFailed to load h5frida plugin";
+
+// alert("frida plugin version="+h5frida.pluginVersion() + "\nfrida core version="+h5frida.coreVersion());
+
+let gadget = h5frida.loadGadget("frida-gadget-15.1.24.dylib");
+// //优先调用集成的frida核心, 将frida-gadget的dylib和config两个文件放到.app目录中
+// if(!gadget) throw "加载frida-gadget守护模块失败\n\nFailed to load frida-gadget daemon module";
+    
+let procs = h5frida.enumerate_processes();
+if(!procs || !procs.length) throw "frida无法获取进程列表\n\nfrida can't get process list";
+
+let pid = -1; //pid=-1, 使用自身进程来调用OC/C/C++函数, 也可以附加到其他APP进程来调用
+//Use its own process to call OC/C/C++ functions, or attach to other APP processes to call
+
+try {pid=h5gg.getProcList("UnityFramework")[0].pid;}catch(e){}
+
+let found = false;
+for(let i=0;i<procs.length;i++) {
+    if(procs[i].pid==pid) {
+        //if(procs[i].name!='Gadget') throw "免越狱测试请卸载frida-server的deb然后重启当前APP\nFor non-jailbreak tests, please uninstall the frida-server deb and restart the current APP";
+        found = true;
+    }
+}
+
+if(!found) throw "frida无法找到目标进程\n\nfrida cannot find the target process";
+
+//检查目标APP进程是否在前台运行, 如果在后台暂停了, frida附加调用会卡住
+//Check whether the target APP process is running in the foreground, if it is suspended in the background, frida will be blocked
+while(pid>0) {
+    let frontapp = h5frida.get_frontmost_application();
+    if(frontapp && frontapp.pid == pid) break;
+    
+    alert("请将目标APP切换至前台运行, 再点击确定继续...\n"
+            + "Please switch the target APP to the foreground to run, and then click OK to continue...");
+}
+
+let session = h5frida.attach(pid);
+if(!session) throw "frida附加进程失败\n\nfrida attach process failed";
+
+//监听frida目标进程连接状态, 比如异常退出
+session.on("detached", function(reason) {
+    alert("frida目标进程会话已终止(frida target process session terminated):\n"+reason);
+});
+
+let frida_script_line = frida_script("getline"); //safari console will auto add 2 line
+let frida_script_code = "\n".repeat(frida_script_line-1)+"("+frida_script.toString()+")()";
+let script = session.create_script(frida_script_code); //注入frida的js脚本代码
+
+if(!script) throw "frida注入脚本失败\n\nfrida inject script failed!";
+
+// if(script.is_running()) {
+//     //alert("该frida脚本已在运行, 点击确定先停止该脚本并重新加载...\nThe frida script is already running, click OK to stop the script and reload...");
+//     script.unload(); script = session.create_script(frida_script_code);
+// }
+
+/*启动脚本前先设置frida脚本消息接收函数, 不要在frida脚本里发太多高频消息过来让h5gg弹出alert, 消息太多让alert阻塞在后台内存会爆导致闪退崩溃
+    Set the frida script message receiving function before starting the script,
+    Don't send too many high-frequency messages in the frida script to let h5gg show alerts,
+    because too many messages to alert will block h5frida in the background, and cause out-of-memory and crashes.
+    */
+
+script.on('message', function(msg) {
+    if(msg.type=='error') {
+        script.unload(); //如果脚本发生错误就停止frida脚本
+        alert("frida(脚本错误)script error:\n"+JSON.stringify(msg,null,1).replaceAll("\\n","\n"));
+    }
+    // if(msg.type=='send')
+    //     alert("frida(脚本消息)srcipt msg:\n"+JSON.stringify(msg.payload,null,1));
+    // if(msg.type=='log')
+    //     alert("frida(脚本日志)script log:\n"+msg.payload);
+
+    if(msg.type=='send')  {
+        recv_frida_data(msg.payload);
+    };
+});
+
+if(!script.load()) throw "frida启动脚本失败\n\nfrida load script failed"; //启动脚本
+
+/**********************************************************************************/
+
+//script.unload(); //卸载脚本
+
+//session.detach(); //断开目标进程
+
+/***************************************************************/
+
+/*
+    下面是frida的js脚本代码, 运行在目标进程, 不能在h5gg中直接调用这个js函数
+    frida的js脚本代码中不能使用任何h5gg的函数和变量, 也不能使用window对象
+    h5gg和frida只能通过console.log和send/recv/post还有rpc.exports进行通信
+
+    The following is the js script code of frida, which runs in the target process, and this js function cannot be called directly in h5gg
+    You cannot use any h5gg functions and variables in frida's js script code, nor can you use the window object
+    h5gg and frida can only communicate through console.log and send/recv/post and rpc.exports
+    */
+function frida_script() { if(arguments.length) return new Error().line; //do not modify this line!!!
+
+    console.log("frida js running...");
+
+    global.erroreport = function(info) {
+        send({type:"error", data:info});
+    };
+    
+    function load_il2cpp_api(returenType, apiName, argTypes, wrapper) {
+        let f = Module.findExportByName(null, apiName);
+        if(!f) throw "cannot find il2cpp api:"+apiName;
+        global[apiName] = wrapper.bind(new NativeFunction(f, returenType, argTypes));
+    }
+
+    function load_il2cpp_icall(returenType, method, argTypes, wrapper)
+    {
+        let f = il2cpp_resolve_icall(method);
+        if(!f) throw "cannot find il2cpp icall:"+method;
+        global[wrapper.name] = wrapper.bind(new NativeFunction(f, returenType, argTypes));
+    }
+
+    function load_corlib_method(returenType, namespaze, clazz, name, argTypes, is_static, wrapper)
+    {
+        let corlib = il2cpp_get_corlib();
+        //console.log("corlib", corlib, corlib.readPointer().readCString());
+        let assemblyClass = il2cpp_class_from_name(corlib, namespaze, clazz);
+        let il2cppmethod = il2cpp_class_get_method_from_name(assemblyClass, name, is_static ? argTypes.length : (argTypes.length-1));
+        if(il2cppmethod.isNull()) throw "cannot find corlib method:"+namespaze+"."+clazz+"."+name;
+        let methodPointer = il2cppmethod.readPointer();
+        global[wrapper.name] = wrapper.bind(new NativeFunction(methodPointer, returenType, argTypes));
+    }
+
+    function load_csharp_method(returenType, module, namespaze, clazz, name, argTypes, wrapper)
+    {
+        let assembly = assemblyLoad(module); //MonoAssembly
+        //console.log("assembly", assembly.readPointer().add(0x10).readPointer().readCString(), hexdump(assembly));
+
+        let type = assemblyGetType(assembly, namespaze+"."+clazz); //RuntimeType (Il2CppReflectionType)
+        //console.log("type", type.readPointer().add(0x10).readPointer().readCString(), hexdump(type));
+
+        // let il2cpptype = type.add(0x10).readPointer();
+
+        let method = typeGetMethod(type, name); //MonoMethod (Il2CppReflectionMethod)
+        //console.log("method", method.readPointer().add(0x10).readPointer().readCString(), hexdump(method));
+
+        if(method.isNull()) throw "cannot find c# method:"+namespaze+"."+clazz+"."+name;
+
+        let methodInfo = method.add(0x10).readPointer();
+        //console.log("methodInfo", methodInfo.readPointer(), methodInfo.add(0x10).readPointer().readCString(), hexdump(method));
+
+        let methodPointer = methodInfo.readPointer();
+        global[wrapper.name] = wrapper.bind(new NativeFunction(methodPointer, returenType, argTypes));
+    }
+
+    
+    rpc.exports.init_via_il2cpp_api=function()
+    {
+   
+        load_il2cpp_api("pointer", "il2cpp_domain_get", [], function() {
+            return this();
+        });
+        
+        load_il2cpp_api("pointer", "il2cpp_thread_attach", ["pointer"], function(domain) {
+            return this(domain);
+        });
+
+        load_il2cpp_api("pointer", "il2cpp_string_new", ["pointer"], function(str) {
+            return this(Memory.allocUtf8String(str));
+        });
+
+        load_il2cpp_api("pointer", "il2cpp_get_corlib", [], function() {
+            return this();
+        });
+
+        load_il2cpp_api("pointer", "il2cpp_class_from_name", ["pointer","pointer","pointer"], function(image,namespaze,name) {
+            return this(image, Memory.allocUtf8String(namespaze), Memory.allocUtf8String(name));
+        });
+
+        load_il2cpp_api("pointer", "il2cpp_class_get_method_from_name", ["pointer","pointer","int"], function(klass,name,argsCount) {
+            return this(klass, Memory.allocUtf8String(name), argsCount);
+        });
+
+        load_il2cpp_api("pointer", "il2cpp_resolve_icall", ["pointer"], function(name) {
+            return this(Memory.allocUtf8String(name));
+        });
+
+        // Field API for static data reads
+        load_il2cpp_api("pointer", "il2cpp_class_get_field_from_name", ["pointer","pointer"], function(klass, name) {
+            return this(klass, Memory.allocUtf8String(name));
+        });
+        load_il2cpp_api("uint", "il2cpp_field_get_offset", ["pointer"], function(field) {
+            return this(field);
+        });
+
+        /********************************************************************************/
+
+        load_il2cpp_icall("pointer", "UnityEngine.Object::FindObjectsOfType(System.Type)", ["pointer"], function FindObjectsOfType(type) {
+            return this(type);  //奇奇怪怪, 定义了之后必须延迟几毫秒再调用, 否则返回的数组中数量比预期少
+        }); console.log("invoke for delay...");
+
+        load_il2cpp_icall("pointer", "UnityEngine.Object::ToString()", ["pointer"], function ToString(object) {
+            return this(object).add(0x14).readUtf16String();
+        });
+
+        load_il2cpp_icall("pointer", "UnityEngine.Object::GetName(UnityEngine.Object)", ["pointer"], function GetName(object) {
+            return this(object).add(0x14).readUtf16String();
+        });
+
+        load_il2cpp_icall("int", "UnityEngine.Object::GetOffsetOfInstanceIDInCPlusPlusObject()", [], function GetOffsetOfInstanceIDInCPlusPlusObject() {
+            return this();
+        });
+
+        load_il2cpp_icall("int", "UnityEngine.SceneManagement.SceneManager::get_sceneCount()", [], function get_sceneCount(object) {
+            return this();
+        });
+
+        load_il2cpp_icall("pointer", "UnityEngine.GameObject::GetComponentsInternal(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Object)",
+        ["pointer","pointer","bool","bool","bool","bool","pointer"], 
+        function GetComponents(gameObject, type, useSearchTypeAsArrayReturnType, recursive, includeInactive, reverse, resultList) {
+            return this(gameObject, type, useSearchTypeAsArrayReturnType, recursive, includeInactive, reverse, resultList);
+        });
+        
+        load_il2cpp_icall("bool", "UnityEngine.GameObject::get_activeInHierarchy()", ["pointer"], function get_activeInHierarchy(gameObject) {
+            return this(gameObject);
+        });
+        
+        load_il2cpp_icall("pointer", "UnityEngine.GameObject::get_transform()", ["pointer"], function get_transform(gameObject) {
+            return this(gameObject);
+        });
+
+        load_il2cpp_icall("void", "UnityEngine.Transform::get_position_Injected(UnityEngine.Vector3&)", ["pointer","pointer"], function get_position(transform) {
+            let vector = Memory.alloc(4*3);
+            this(transform, vector);
+            return {x:vector.readFloat(), y:vector.add(4).readFloat(), z:vector.add(8).readFloat()};
+        });
+
+        load_il2cpp_icall("pointer", "UnityEngine.Component::get_gameObject()", ["pointer"], function get_gameObject(component) {
+            return this(component);
+        });
+        
+        load_il2cpp_icall("int", "UnityEngine.Camera::GetAllCamerasCount()", [], function GetAllCamerasCount() {
+            return this();
+        });
+
+        load_il2cpp_icall("pointer", "UnityEngine.Camera::get_main()", [], function get_mainCamera() {
+            return this();
+        });
+
+        load_il2cpp_icall("void", "UnityEngine.Camera::WorldToViewportPoint_Injected(UnityEngine.Vector3&,UnityEngine.Camera/MonoOrStereoscopicEye,UnityEngine.Vector3&)",
+        ["pointer","pointer","int","pointer"], function WorldToViewportPoint(camera,location,eye) {
+            let ret = Memory.alloc(4*3);
+            this(camera,location,eye,ret);
+            return {x:ret.readFloat(), y:ret.add(4).readFloat(), z:ret.add(8).readFloat()};
+        });
+
+        load_il2cpp_icall("void", "UnityEngine.Camera::WorldToScreenPoint_Injected(UnityEngine.Vector3&,UnityEngine.Camera/MonoOrStereoscopicEye,UnityEngine.Vector3&)",
+        ["pointer","pointer","int","pointer"], function WorldToScreenPoint(camera,location,eye) {
+            let ret = Memory.alloc(4*3);
+            this(camera,location,eye,ret);
+            return {x:ret.readFloat(), y:ret.add(4).readFloat(), z:ret.add(8).readFloat()};
+        });
+        
+        /********************************************************************************/
+
+        let domain = il2cpp_domain_get(); 
+        il2cpp_thread_attach(domain);
+
+        load_corlib_method("pointer", "System.Reflection", "Assembly", "Load", ["pointer"], true, function assemblyLoad(assemblyString) {
+            return this(il2cpp_string_new(assemblyString));
+        });
+
+        load_corlib_method("pointer", "System.Reflection", "Assembly", "GetType", ["pointer","pointer"], false, function assemblyGetType(assembly, name) {
+            return this(assembly, il2cpp_string_new(name));
+        });
+
+        load_corlib_method("pointer", "System", "Type", "GetMethod", ["pointer","pointer"], false, function typeGetMethod(type, name) {
+            return this(type, il2cpp_string_new(name));
+        });
+
+        /********************************************************************************/
+
+        load_csharp_method("int", "UnityEngine.CoreModule", "UnityEngine", "Camera", "GetAllCameras", ["pointer"], function GetAllCameras(arrbuf) {
+            return this(arrbuf);
+        });
+
+        return true;
+    }
+    
+    /********************************************************************************/
+    
+    let screenFrame = ObjC.classes.UIApplication.sharedApplication().keyWindow().frame();
+    let screenSize = {width: screenFrame[1][0], height:screenFrame[1][1]};
+    //console.log("screenSize", screenSize.width, screenSize.height);
+    
+    let WorldToScreen = function(position) {
+        if(global.mainCamera) 
+        {
+            let vector = Memory.alloc(4*3);
+            vector.writeFloat(position.x);
+            vector.add(4).writeFloat(position.y);
+            vector.add(8).writeFloat(position.z);
+            let pos = WorldToViewportPoint(mainCamera, vector, 2);
+            if(pos.z > 0) {
+                pos.x *= screenSize.width;
+                pos.y = screenSize.height*(1-pos.y);
+            }
+            return pos;
+        }
+    }
+
+ rpc.exports.getdata=function() {
+    try {return getdata();} catch(e) {erroreport(e)};
+  }
+ global.getdata=function() {
+
+    global.OffsetOfInstanceIDInCPlusPlusObject = GetOffsetOfInstanceIDInCPlusPlusObject();
+    //console.log("OffsetOfInstanceIDInCPlusPlusObject", OffsetOfInstanceIDInCPlusPlusObject);
+
+    let cameraCount = GetAllCamerasCount();
+    //console.log("cameraCount: ", cameraCount);
+
+    let cameras = [];
+
+    let allCameras = Memory.alloc(0x20+8*cameraCount);
+    allCameras.add(0x18).writeInt(cameraCount);
+    cameraCount = GetAllCameras(allCameras);
+    console.log("allCameras", cameraCount, allCameras, allCameras.add(0x18).readInt());
+    //console.log("allCameras", allCameras, allCameras.add(0x18).readInt());
+    for(let i=0; i<cameraCount; i++) {
+        let camera = allCameras.add(0x20+i*8).readPointer();
+        let camdesc = ToString(camera);
+        //console.log(i, "camera", camera, camdesc);
+
+        cameras.push({
+            addr:camera,
+            desc:'['+camera+'] '+camdesc
+        });
+    }
+
+    let showObjectArray = [];
+    
+    let UnityEngineAssembly = assemblyLoad("UnityEngine");
+    let GameObjectType = assemblyGetType(UnityEngineAssembly, "UnityEngine.GameObject");
+    let ComponentType = assemblyGetType(UnityEngineAssembly, "UnityEngine.Component");
+    
+    //console.log("UnityEngineAssembly, GameObjectType : ", UnityEngineAssembly, GameObjectType);
+
+    let gameObjectArray = FindObjectsOfType(GameObjectType);
+    let gameObjectCount = gameObjectArray.add(0x18).readLong();
+    //console.log("gameObjectArray, gameObjectCount : ", gameObjectArray, gameObjectCount);
+
+    let gameObjects = [];
+    let componentTypes = [];
+    let componentInfos = [];
+    
+    for(let i=0; i<gameObjectCount; i++)
+    {
+        let object = gameObjectArray.add(0x20+i*8).readPointer();
+    
+        let activeInHierarchy = get_activeInHierarchy(object);
+        
+        let componentArray = GetComponents(object, ComponentType, 0,0,0,0, ptr(0));
+        let componentCount = componentArray.add(0x18).readLong();
+
+        let transform = get_transform(object);
+        let position = get_position(transform);
+
+        let zeroPosition = position.x==0 && position.y==0 && position.z==0;
+
+        if(activeInHierarchy && !zeroPosition && componentCount>1)
+        {
+            //let objdesc = ToString(object);
+            let objname = GetName(object);
+            let InstanceID = object.add(0x10).readPointer().add(OffsetOfInstanceIDInCPlusPlusObject).readInt();
+    
+            let componentArray = GetComponents(object, ComponentType, 0,0,0,0, ptr(0));
+            let componentCount = componentArray.add(0x18).readLong();
+    
+            let transform = get_transform(object);
+            let position = get_position(transform);
+
+            let go_components=[];
+            for(let n=0; n<componentCount; n++)
+            {
+                let comp = componentArray.add(0x20+n*8).readPointer();
+                if(comp.isNull()) continue;
+
+                //let compdesc = ToString(comp);
+                // let compname = GetName(comp);
+                // if(compname != objname) throw "exception!!!";
+
+                let _pclass = comp.readPointer();
+                let _image = _pclass.readPointer().readPointer().readCString();
+                let _klass = _pclass.add(0x10).readPointer().readCString();
+                let _namespaze = _pclass.add(0x18).readPointer().readCString();
+
+                let typeKey = _image+":"+_namespaze+"."+_klass;
+
+                let index = componentTypes.indexOf(typeKey);
+                if(index==-1) {
+                    index = componentTypes.push(typeKey)-1;
+                    componentInfos.push({
+                        count:0, 
+                        image:_image, 
+                        type:_namespaze.length ? (_namespaze+"."+_klass) : _klass
+                    });
+                }
+                
+                componentInfos[index].count++;
+
+                if(go_components.indexOf(index)==-1)
+                    go_components.push(index);
+            }
+    
+            gameObjects.push([InstanceID,objname,go_components]);
+        }
+    }
+    
+    return {"gameObjectCount":gameObjectCount, "gameObjects":gameObjects, "components":componentInfos, "cameras":cameras};
+    
+  };
+
+  
+
+  rpc.exports.startDraw=function(filter) {
+    try {return startDraw(filter);} catch(e) {erroreport(e)};
+  }
+  global.startDraw=function(filter) 
+  {
+    if(global.drawtimer) clearInterval(global.drawtimer);
+
+    let UnityEngineAssembly = assemblyLoad("UnityEngine");
+    let ComponentType = assemblyGetType(UnityEngineAssembly, "UnityEngine.Component");
+
+    let image=filter.MainComponentFilter.image; image=image.substring(0, image.lastIndexOf("."));
+
+    let ComponentFilterAssembly = assemblyLoad(image);
+    let ComponentFilterType = assemblyGetType(ComponentFilterAssembly, filter.MainComponentFilter.type);
+    
+    // Check if component type exists
+    if(ComponentFilterType.isNull()) {
+        send({type:"error", data:"Component type not found. Game may not be started yet."});
+        return false;
+    }
+
+    // Team filter pre-resolve
+    let teamCheckEnabled = false;
+    let teamTargetTypeName = null;
+    let teamFieldName = null;
+    let teamLocalValue = 0;
+    let teamMode = "all";
+    if(filter.TeamCheck && filter.TeamCheck.enabled) {
+        try {
+            let tImage = filter.TeamCheck.image;
+            let tTypeFull = filter.TeamCheck.componentType; // "Namespace.Class"
+            let tField = filter.TeamCheck.fieldName;
+            let tLocal = parseInt(filter.TeamCheck.localTeam);
+            let tMode = (filter.TeamCheck.mode||"all");
+            let tAsmName = tImage.substring(0, tImage.lastIndexOf("."));
+            // Load type to validate existence (not strictly required, but good sanity)
+            let TAsm = assemblyLoad(tAsmName);
+            let TType = assemblyGetType(TAsm, tTypeFull);
+            if(!TType.isNull()) {
+                teamCheckEnabled = true;
+                teamTargetTypeName = tTypeFull;
+                teamFieldName = tField;
+                teamLocalValue = tLocal|0;
+                teamMode = tMode;
+            }
+        } catch(e) {
+            // if team resolve fails, keep disabled to avoid breaking ESP
+            teamCheckEnabled = false;
+        }
+    }
+
+    // cache for field offsets by Il2CppClass* address
+    let teamFieldOffsetCache = {};
+
+  function drawfunc() {
+    try {
+    let checkedcamera = null;
+
+    if(filter.MainCameraFilter.length) 
+    {
+        let cameraCount = GetAllCamerasCount();
+        //console.log("cameraCount: ", cameraCount);
+
+        let allCameras = Memory.alloc(0x20+8*cameraCount);
+        allCameras.add(0x18).writeInt(cameraCount);
+        cameraCount = GetAllCameras(allCameras);
+        //console.log("allCameras", allCameras, allCameras.add(0x18).readInt());
+        for(let i=0; i<cameraCount; i++) {
+            let camera = allCameras.add(0x20+i*8).readPointer();
+            //console.log(i, "camera", camera, ToString(camera));
+
+            if(camera==filter.MainCameraFilter) {
+                checkedcamera = camera; 
+                break;
+            }
+        }
+    } else {
+        checkedcamera = get_mainCamera();
+    }
+
+    if(!checkedcamera || checkedcamera.isNull()) {
+        // Camera not available, game might have ended
+        send({type:"draw", data:[]});
+        return;
+    }
+
+    global.mainCamera = checkedcamera;
+
+    let showObjectArray = [];
+
+    // Check if component type is still valid
+    if(ComponentFilterType.isNull()) {
+        // Component type disappeared, game might have ended
+        send({type:"draw", data:[]});
+        return;
+    }
+    
+    let ComponentFilterArray = FindObjectsOfType(ComponentFilterType);
+    if(ComponentFilterArray.isNull()) {
+        send({type:"draw", data:[]});
+        return;
+    }
+    
+    let ComponentFilterCount = ComponentFilterArray.add(0x18).readLong();
+    //console.log("ComponentFilterArray, ComponentFilterCount : ", ComponentFilterArray, ComponentFilterCount);
+    for(let i=0; i<ComponentFilterCount; i++)
+    {
+        let ComponentFilter = ComponentFilterArray.add(0x20+i*8).readPointer();
+        let object = get_gameObject(ComponentFilter);
+
+        let activeInHierarchy = get_activeInHierarchy(object);
+        
+        if(activeInHierarchy) 
+        {
+            //let objdesc = ToString(object);
+            
+            if(filter.GameObjectNameFilter.value.length)
+            {
+                let objname = GetName(object);
+
+                if(filter.GameObjectNameFilter.type==1 && objname!=filter.GameObjectNameFilter.value)
+                    continue;
+
+                if(filter.GameObjectNameFilter.type==2 && objname.indexOf(filter.GameObjectNameFilter.value)==-1)
+                    continue;
+            }
+
+            if(filter.SubComponentFilters.length)
+            {
+                let checkedSubComponents = [];
+
+                let componentArray = GetComponents(object, ComponentType, 0,0,0,0, ptr(0));
+                let componentCount = componentArray.add(0x18).readLong();
+
+                for(let n=0; n<componentCount; n++)
+                {
+                    let comp = componentArray.add(0x20+n*8).readPointer();
+                    if(comp.isNull()) continue;
+                
+                    let _pclass = comp.readPointer();
+                    let _klass = _pclass.add(0x10).readPointer().readCString();
+                    let _namespaze = _pclass.add(0x18).readPointer().readCString();
+                    let _type = _namespaze.length ? (_namespaze+"."+_klass) : _klass;
+
+                    if(filter.SubComponentFilters.indexOf(_type)!=-1 && checkedSubComponents.indexOf(_type)==-1) {
+                        checkedSubComponents.push(_type);
+                    }
+                }
+
+                if(checkedSubComponents.length != filter.SubComponentFilters.length)
+                    continue;
+            }
+
+            // Team filter (optional)
+            if(teamCheckEnabled) {
+                let includeByTeam = false;
+                let componentArray = GetComponents(object, ComponentType, 0,0,0,0, ptr(0));
+                let componentCount = componentArray.add(0x18).readLong();
+                for(let n=0; n<componentCount; n++)
+                {
+                    let comp = componentArray.add(0x20+n*8).readPointer();
+                    if(comp.isNull()) continue;
+                    let _pclass = comp.readPointer();
+                    let _klass = _pclass.add(0x10).readPointer().readCString();
+                    let _namespaze = _pclass.add(0x18).readPointer().readCString();
+                    let _type = _namespaze.length ? (_namespaze+"."+_klass) : _klass;
+                    if(_type === teamTargetTypeName) {
+                        // resolve or fetch offset for this class
+                        let klassPtr = _pclass; // Il2CppClass*
+                        let klassKey = klassPtr.toString();
+                        let fieldOffset = teamFieldOffsetCache[klassKey];
+                        if(fieldOffset === undefined) {
+                            try {
+                                let field = il2cpp_class_get_field_from_name(klassPtr, teamFieldName);
+                                if(!field.isNull()) {
+                                    fieldOffset = il2cpp_field_get_offset(field);
+                                    teamFieldOffsetCache[klassKey] = fieldOffset>>>0;
+                                } else {
+                                    fieldOffset = null;
+                                    teamFieldOffsetCache[klassKey] = null;
+                                }
+                            } catch(e) {
+                                fieldOffset = null;
+                                teamFieldOffsetCache[klassKey] = null;
+                            }
+                        }
+                        if(fieldOffset!==null && fieldOffset!==undefined) {
+                            let teamVal = comp.add(fieldOffset>>>0).readInt();
+                            if(teamMode==="all") {
+                                includeByTeam = true;
+                            } else if(teamMode==="enemies") {
+                                includeByTeam = (teamVal !== teamLocalValue);
+                            } else if(teamMode==="allies") {
+                                includeByTeam = (teamVal === teamLocalValue);
+                            }
+                        } else {
+                            // cannot read field, default exclude for strict modes, include for "all"
+                            includeByTeam = (teamMode==="all");
+                        }
+                        break;
+                    }
+                }
+                if(!includeByTeam) continue;
+            }
+
+            let transform = get_transform(object);
+            let position = get_position(transform);
+
+            let InstanceID = object.add(0x10).readPointer().add(OffsetOfInstanceIDInCPlusPlusObject).readInt();
+            let objname = GetName(object);
+            
+            showObjectArray.push({
+                "id":InstanceID,
+                "name":objname,
+                "position":position
+            });
+        }
+    }
+
+    if(showObjectArray.length>50) {
+        throw "too many gameobjects to draw, count="+showObjectArray.length+", Please adjust the Filter so that the count of gameobjects drawn is less than 50";
+    }
+
+    var trans = function() {
+        let drawobjects=[];
+        for(let i=0; i<showObjectArray.length; i++)
+        {
+            let position = showObjectArray[i].position;
+            //position.x-=10; position.z+=5; //test
+
+            let pos = WorldToScreen(position);
+            //console.log("{",pos.x,pos.y,pos.z,"}");
+            if(pos.z>0) {
+                drawobjects.push({
+                    id:showObjectArray[i].id,
+                    name:showObjectArray[i].name,
+                    x:pos.x,
+                    y:pos.y
+                });
+            }
+        }
+        
+        send({type:"draw", data:drawobjects}); //send to recv_frida_data
+    }
+
+    if(!filter.calcInMainThread && filter.w2sInMainThread) ObjC.schedule(ObjC.mainQueue, trans); else trans();
+    
+    } catch(e) {
+        // Error occurred, likely game ended or component disappeared
+        send({type:"draw", data:[]});
+    }
+  }
+
+  global.drawtimer = setInterval(function(){
+    try {
+        if(filter.calcInMainThread) ObjC.schedule(ObjC.mainQueue,drawfunc); else drawfunc();
+    } catch(e) {clearInterval(global.drawtimer);erroreport(e)};
+    
+  }, 25);
+
+    return true;
+ };
+
+ rpc.exports.stopDraw=function() {
+    if(global.drawtimer) clearInterval(global.drawtimer);
+    send({type:"draw", data:[]});
+ }
+
+
+}
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"41fa1efae1214ca7ae07f95dd4712992","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
